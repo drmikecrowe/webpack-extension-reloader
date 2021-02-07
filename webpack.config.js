@@ -55,22 +55,25 @@ module.exports = (env = { analyze: false }) => ({
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"]
+        use: 'babel-loader'
       },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader", "ts-loader"]
+        use: [
+          {loader: 'babel-loader'},
+          {loader: 'ts-loader'}
+        ]
       },
       {
         test: /\.json$/,
         exclude: /node_modules/,
-        loaders: ["json-loader"]
+        use: 'json-loader'
       },
       {
         test: /\.txt$/,
         exclude: /node_modules/,
-        loaders: ["raw-loader"]
+        use: 'raw-loader'
       }
     ]
   }

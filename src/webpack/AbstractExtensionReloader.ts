@@ -1,7 +1,7 @@
-import { Compiler, Plugin } from "webpack";
+import { Compiler, WebpackPluginInstance} from "webpack";
 import CompilerEventsFacade from "./CompilerEventsFacade";
 
-export default abstract class AbstractExtensionReloader implements Plugin {
+export default abstract class AbstractExtensionReloader implements WebpackPluginInstance {
   public context: any;
   protected _injector: InjectMiddleware;
   protected _triggerer: Triggerer;

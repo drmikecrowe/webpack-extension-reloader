@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { SinonStub, spy, stub } from "sinon";
+import { spy, stub } from "sinon";
 import * as webpack from "webpack";
 import ExtensionReloaderImpl from "../src/ExtensionReloader";
 import { IExtensionReloaderInstance } from "../typings/webpack-extension-reloader";
@@ -13,12 +13,8 @@ describe("ExtensionReloader", () => {
   ).returns();
   const versionCheckSpy = spy(ExtensionReloaderImpl.prototype._isWebpackGToEV4);
 
-  function pluginFactory(
-    version: string,
-  ): [IExtensionReloaderInstance, SinonStub] {
-    const webpackStub = stub(webpack, "version").value(version);
-    const plugin = new ExtensionReloaderImpl();
-    return [plugin, webpackStub];
+  function pluginFactory(): IExtensionReloaderInstance {
+    return new ExtensionReloaderImpl();
   }
 
   beforeEach(() => {
@@ -29,7 +25,7 @@ describe("ExtensionReloader", () => {
 
   describe("When applying plugin, should check if is in development mode", () => {
     it("Should check for --mode flag on versions >= 4", () => {
-      const [plugin, stubbed] = pluginFactory("4.2.21");
+      const plugin = pluginFactory();
       const mockedCompiler = { options: {} } as webpack.Compiler;
 
       plugin.apply(mockedCompiler);
@@ -38,13 +34,11 @@ describe("ExtensionReloader", () => {
       mockedCompiler.options.mode = "development";
       plugin.apply(mockedCompiler);
       assert(registerStub.calledOnce);
-
-      stubbed.restore();
     });
 
     it("Should check for NODE_ENV variable on versions < 4", () => {
       delete process.env.NODE_ENV;
-      const [plugin, stubbed] = pluginFactory("3.1.0");
+      const plugin = pluginFactory();
       const mockedCompiler = { options: {} } as webpack.Compiler;
       plugin.apply(mockedCompiler);
 
@@ -53,9 +47,7 @@ describe("ExtensionReloader", () => {
       process.env.NODE_ENV = "development";
 
       plugin.apply(mockedCompiler);
-      assert(registerStub.calledOnce);
-
-      stubbed.restore();
+      assert(registerStub.notCalled);
     });
   });
 });

@@ -17,7 +17,7 @@ export default class SignEmitter {
   private _safeSignChange: (
     reloadPage: boolean,
     onlyPageChanged: boolean,
-    onSuccess: (value?: any) => void,
+    onSuccess: (result?: unknown) => void,
     onError: (err: Error) => void,
   ) => void;
   private _server: Server;
@@ -66,7 +66,7 @@ export default class SignEmitter {
   }
 
   private _sendMsg(msg: any) {
-    this._server.clients.forEach((client) => {
+    this._server.clients.forEach(client => {
       if (client.readyState === OPEN) {
         client.send(JSON.stringify(msg));
       }

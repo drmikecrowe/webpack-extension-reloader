@@ -1,5 +1,5 @@
 import { merge } from "lodash";
-import { Compiler, Entry, Output, version } from "webpack";
+import { Compiler, Entry, version } from "webpack";
 import { changesTriggerer } from "./hot-reload";
 import { onlyOnDevelopmentMsg } from "./messages/warnings";
 import { middlewareInjector } from "./middleware";
@@ -82,8 +82,7 @@ export default class ExtensionReloaderImpl extends AbstractPluginReloader
 
     const parsedEntries: IEntriesOption = manifest
       ? extractEntries(
-          compiler.options.entry as Entry,
-          compiler.options.output as Output,
+          compiler.options,
           manifest,
         )
       : entries;

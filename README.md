@@ -10,17 +10,17 @@ A Webpack plugin to automatically reload browser extensions during development.
   <br>
 </div>
 
-[![npm version](https://badge.fury.io/js/webpack-extension-reloader.svg)](https://badge.fury.io/js/webpack-extension-reloader)
-[![Test Status](https://github.com/rubenspgcavalcante/webpack-extension-reloader/workflows/tests/badge.svg)](https://github.com/rubenspgcavalcante/webpack-extension-reloader/actions?query=branch%3Amaster)
-[![NPM Downloads](https://img.shields.io/npm/dt/webpack-extension-reloader.svg)](https://www.npmjs.com/package/webpack-extension-reloader)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b93aa8303bfb44a2a621cac57639ca26)](https://www.codacy.com/app/rubenspgcavalcante/webpack-extension-reloader?utm_source=github.com&utm_medium=referral&utm_content=rubenspgcavalcante/webpack-extension-reloader&utm_campaign=Badge_Grade) [![Greenkeeper badge](https://badges.greenkeeper.io/rubenspgcavalcante/webpack-extension-reloader.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/@drmikecrowe/webpack-extension-reloaderv5.svg)](https://badge.fury.io/js/@drmikecrowe/webpack-extension-reloaderv5)
+[![Test Status](https://github.com/drmikecrowe/webpack-extension-reloader/workflows/tests/badge.svg)](https://github.com/drmikecrowe/webpack-extension-reloader/actions?query=branch%3Amaster)
+[![NPM Downloads](https://img.shields.io/npm/dt/@drmikecrowe/webpack-extension-reloaderv5.svg)](https://www.npmjs.com/package/@drmikecrowe/webpack-extension-reloaderv5)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b93aa8303bfb44a2a621cac57639ca26)](https://www.codacy.com/app/drmikecrowe/webpack-extension-reloader?utm_source=github.com&utm_medium=referral&utm_content=drmikecrowe/webpack-extension-reloader&utm_campaign=Badge_Grade) [![Greenkeeper badge](https://badges.greenkeeper.io/drmikecrowe/webpack-extension-reloader.svg)](https://greenkeeper.io/)
 
 ## Fork Description
 
 This is a fork from:
 
 - [Evgenii Saltykov](https://github.com/SharpDevSa/webpack-extension-reloader)'s fork upgrading the original Webpack v4 plugin to v5
-- The original [Rubens Pinheiro Gonçalves Cavalcante](https://github.com/rubenspgcavalcante/webpack-extension-reloader)'s webpack-extension-reloader
+- The original [Rubens Pinheiro Gonçalves Cavalcante](https://github.com/drmikecrowe/webpack-extension-reloader)'s webpack-extension-reloader
 
 My changes:
 
@@ -38,7 +38,7 @@ npm install @drmikecrowe/webpack-extension-reloaderv5 --save-dev
 yarn
 
 ```bash
-yarn add webpack-extension-reloader --dev
+yarn add @drmikecrowe/webpack-extension-reloaderv5 --dev
 ```
 
 ## Solution for ...
@@ -62,11 +62,11 @@ Check out [Hot reloading extensions using Webpack](https://medium.com/front-end-
 
 ### Using as a plugin
 
-Add `webpack-extension-reloader` to the plugins section of your webpack configuration file. Note that this plugin don't outputs the manifest (at most read it to gather information).
+Add `@drmikecrowe/webpack-extension-reloaderv5` to the plugins section of your webpack configuration file. Note that this plugin don't outputs the manifest (at most read it to gather information).
 For outputing not only the `manifest.json` but other static files too, use `CopyWebpackPlugin`.
 
 ```js
-const ExtensionReloader = require("webpack-extension-reloader");
+const ExtensionReloader = require("@drmikecrowe/webpack-extension-reloaderv5");
 
 plugins: [
   new ExtensionReloader(),
@@ -167,20 +167,20 @@ If you don't want all the plugin setup, you can just use the client that comes w
 You can use by installing the package globally, or directly using `npx`:
 
 ```bash
-npx webpack-extension-reloader
+npx @drmikecrowe/webpack-extension-reloaderv5
 ```
 
 If you run directly, it will use the default configurations, but if you want to customize
 you can call it with the following options:
 
 ```bash
-npx webpack-extension-reloader --config wb.config.js --port 9080 --no-page-reload --content-script my-content.js --background bg.js --extension-page popup.js
+npx @drmikecrowe/webpack-extension-reloaderv5 --config wb.config.js --port 9080 --no-page-reload --content-script my-content.js --background bg.js --extension-page popup.js
 ```
 
 If you have **multiple** content scripts or extension pages, just use comma (with no spaces) while passing the option
 
 ```bash
-npx webpack-extension-reloader --content-script my-first-content.js,my-second-content.js,my-third-content.js --extension-page popup.js,options.js
+npx @drmikecrowe/webpack-extension-reloaderv5 --content-script my-first-content.js,my-second-content.js,my-third-content.js --extension-page popup.js,options.js
 ```
 
 ### Client options
