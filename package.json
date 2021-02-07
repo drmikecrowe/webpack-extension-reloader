@@ -1,6 +1,6 @@
 {
   "name": "@drmikecrowe/webpack-extension-reloaderv5",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "Watch for changes and force the reload of the browser extension (webpack 5 support)",
   "main": "dist/webpack-extension-reloader.js",

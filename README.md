@@ -17,6 +17,8 @@ A Webpack plugin to automatically reload browser extensions during development.
 
 ## Fork Description
 
+> :warning: **This is WORK IN PROGRESS**: Be very careful using it!
+
 This is a fork from:
 
 - [Evgenii Saltykov](https://github.com/SharpDevSa/webpack-extension-reloader)'s fork upgrading the original Webpack v4 plugin to v5
