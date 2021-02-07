@@ -35,7 +35,7 @@
     "lint:files": "tslint --fix --format codeFrame",
     "format:files": "prettier --write"
   },
-  "author": "Mike Crowe extending work of Rubens Pinheiro Gonçalves Cavalcante",
+  "author": "Mike Crowe extending work of Evgenii Saltykov and Rubens Pinheiro Gonçalves Cavalcante",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/drmikecrowe/webpack-extension-reloader/issues"
